@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flowchart voor Dataset Opschonen</title>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({startOnLoad:true});
+        </script>
+        <style>
+            .mermaid {
+                margin: auto;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mermaid">
+            graph TD
+            A[Start Dataset Opschonen]
+            B{Antwoord Lengte in Meters?}
+            C[Hercodering naar Centimeters]
+            D{Lengte < 141 cm OR Lengte > 251 cm OR Gewicht < 38 kg OR Gewicht > 595 kg}
+            E[Waarde als Missend]
+            F{Lengte en Gewicht Correct AND Vragen over Koffie en Geluk Ingevuld?}
+            G[Analyse]
+            H[Deelnemer van Analyse]
+            I[193 Deelnemers]
+            
+            A --> B
+            B -- Ja --> C
+            B -- Nee --> D
+            C --> D
+            D -- Ja --> E
+            D -- Nee --> F
+            E --> F
+            F -- Ja --> G
+            F -- Nee --> H
+            G --> I
+        </div>
+    </body>
+</html>
