@@ -9,23 +9,25 @@
         <style>
             .mermaid {
                 margin: auto;
-                width: 50%;
+                width: 70%;
             }
         </style>
     </head>
     <body>
         <div class="mermaid">
             graph TD
-            A[Start Dataset Opschonen]
-            B{Antwoord Lengte in Meters?}
-            C[Hercodering naar Centimeters]
-            D{Lengte < 141 cm OR Lengte > 251 cm OR Gewicht < 38 kg OR Gewicht > 595 kg}
-            E[Waarde als Missend]
-            F{Lengte en Gewicht Correct AND Vragen over Koffie en Geluk Ingevuld?}
+            Z[260 Deelnemers]
+            A[Start Opschonen]
+            B{Lengte in M?}
+            C[Naar CM]
+            D{Onrealistische L/G?}
+            E[Als Missend]
+            F{Alle Vragen Ingevuld?}
             G[Analyse]
-            H[Deelnemer van Analyse]
+            H[Geen Deelnemer]
             I[193 Deelnemers]
             
+            Z --> A
             A --> B
             B -- Ja --> C
             B -- Nee --> D
@@ -39,3 +41,4 @@
         </div>
     </body>
 </html>
+
