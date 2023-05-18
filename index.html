@@ -29,22 +29,25 @@
     <body>
         <div class="mermaid">
             graph TB
-            A[Start: Raw Dataset]
+            A[Start: Raw Dataset (260 deelnemers)]
             B[Hercoderen lengte naar centimeters]
             C[Identificeren niet-realistische antwoorden]
             D[Coderen niet-realistische antwoorden als missende waarden]
-            E[Controleren of koffie vragen en geluk vragen volledig ingevuld zijn]
-            F{Zijn beide sets vragen volledig?}
-            G[Inclusie deelnemer in analyse]
-            H[Exclusie deelnemer van analyse]
+            E[Coderen afkapwaardes voor lengte en gewicht]
+            F[Controleren of koffie vragen en geluk vragen volledig ingevuld zijn]
+            G{Zijn beide sets vragen volledig?}
+            H[Inclusie deelnemer in analyse (193 deelnemers)]
+            I[Exclusie deelnemer van analyse]
 
             A --> B
             B --> C
             C --> D
             D --> E
             E --> F
-            F -- Ja --> G
-            F -- Nee --> H
+            F --> G
+            G -- Ja --> H
+            G -- Nee --> I
         </div>
     </body>
 </html>
+
