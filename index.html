@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flowchart voor Dataset Opschonen</title>
+        <title>Flowchart voor Statistische Analyse</title>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>
-            mermaid.initialize({startOnLoad:true});
+            mermaid.initialize({startOnLoad:true, theme: 'neutral'});
         </script>
         <style>
+            body {
+                background-color: #fff;
+                font-family: Arial, sans-serif;
+            }
+
             .mermaid {
+                display: block;
                 margin: auto;
-                width: 70%;
+                width: 80%;
+                padding: 20px;
+                background-color: #fff;
+                text-transform: lowercase;
+            }
+
+            .mermaid div:first-letter {
+                text-transform: capitalize;
             }
         </style>
     </head>
     <body>
         <div class="mermaid">
-            graph TD
-            Z[260 Deelnemers]
-            A[Start Opschonen]
-            B{Lengte in M?}
-            C[Naar CM]
-            D{Onrealistische L/G?}
-            E[Als Missend]
-            F{Alle Vragen Ingevuld?}
-            G[Analyse]
-            H[Geen Deelnemer]
-            I[193 Deelnemers]
-            
-            Z --> A
+            graph TB
+            A[Controle op assumpties]
+            B[Uitvoeren van ruwe analyses van het hoofdverband]
+            C[Maken interactietermen potentiële effectmodificatoren]
+            D[Elke potentiële effectmodificator apart testen]
+            E{Effectmodificator?}
+            F[Elke potentiele confounder apart testen]
+            G{Confounder?}
+            H[Eindanalyse met effectmodificatoren en confounders]
+
             A --> B
-            B -- Ja --> C
-            B -- Nee --> D
+            B --> C
             C --> D
-            D -- Ja --> E
-            D -- Nee --> F
-            E --> F
-            F -- Ja --> G
-            F -- Nee --> H
-            G --> I
+            D --> E
+            E -- Ja --> H
+            E -- Nee --> F
+            F --> G
+            G -- Ja --> H
         </div>
     </body>
 </html>
-
