@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flowchart voor Statistische Analyse</title>
+        <title>Flowchart voor Opschonen Dataset</title>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>
             mermaid.initialize({startOnLoad:true, theme: 'neutral'});
@@ -29,23 +29,22 @@
     <body>
         <div class="mermaid">
             graph TB
-            A[Controle op assumpties]
-            B[Uitvoeren van ruwe analyses van het hoofdverband]
-            C[Maken interactietermen potentiële effectmodificatoren]
-            D[Elke potentiële effectmodificator apart testen]
-            E{Effectmodificator?}
-            F[Elke potentiele confounder apart testen]
-            G{Confounder?}
-            H[Eindanalyse met effectmodificatoren en confounders]
+            A[Start: Raw Dataset]
+            B[Hercoderen lengte naar centimeters]
+            C[Identificeren niet-realistische antwoorden]
+            D[Coderen niet-realistische antwoorden als missende waarden]
+            E[Controleren of koffie vragen en geluk vragen volledig ingevuld zijn]
+            F{Zijn beide sets vragen volledig?}
+            G[Inclusie deelnemer in analyse]
+            H[Exclusie deelnemer van analyse]
 
             A --> B
             B --> C
             C --> D
             D --> E
-            E -- Ja --> H
-            E -- Nee --> F
-            F --> G
-            G -- Ja --> H
+            E --> F
+            F -- Ja --> G
+            F -- Nee --> H
         </div>
     </body>
 </html>
